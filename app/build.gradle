@@ -1,0 +1,84 @@
+apply plugin: 'com.android.application'
+
+//需要加入代码
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+//热修复
+apply from: 'tinkerpatch.gradle'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.1"
+    defaultConfig {
+        applicationId "com.example.mylock.DynamicLock"
+        minSdkVersion 19
+        targetSdkVersion 21
+        versionCode 3
+        versionName "2.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+
+    signingConfigs {
+        debug {
+            keyAlias "androiddebugkey"
+            keyPassword "android"
+            storeFile file("./debug.keystore")
+            storePassword "android"
+        }
+        release {
+            storeFile file("./lock.jks")
+            storePassword "123456"
+            keyAlias "lock"
+            keyPassword "123456"
+        }
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.release
+        }
+    }
+
+
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    //需要加入代码
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    compile "org.jetbrains.anko:anko-common:$anko_version"
+
+    // 若使用annotation需要单独引用,对于tinker的其他库都无需再引用
+    //noinspection GradleCompatible
+    compile 'com.android.support:appcompat-v7:25.0.1'
+    compile 'org.xutils:xutils:3.5.0'
+    compile 'com.android.support:support-v4:25.0.1'
+    compile 'com.tinkerpatch.sdk:tinkerpatch-android-sdk:1.2.2'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+    provided 'com.tinkerpatch.tinker:tinker-android-anno:1.9.2'
+    compile 'com.kevin:wraprecyclerview:1.0.6'
+    compile 'com.zhy:autolayout:1.4.5'
+//    compile 'com.yanzhenjie:recyclerview-swipe:1.1.4'
+}

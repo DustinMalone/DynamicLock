@@ -1,0 +1,35 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+
+    //需要加入代码
+    ext.kotlin_version = '1.1.2-4'
+    ext.anko_version = '0.10.0-beta-2'
+
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.2.3'
+//需要加入的代码
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+
+        //热修复
+//        classpath 'cn.jiajixin.nuwa:gradle:1.2.2'
+
+        // TinkerPatch 插件
+        classpath "com.tinkerpatch.sdk:tinkerpatch-gradle-plugin:1.2.2"
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

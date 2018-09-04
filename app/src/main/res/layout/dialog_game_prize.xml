@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="1650px"
+              android:layout_height="2400px"
+    android:background="@drawable/bg_dialog_game_win">
+
+    <TextView
+        android:layout_width="850px"
+        android:layout_height="380px"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="690px"
+        android:textSize="120px"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:text="免费领取"
+        android:lines="1"
+        android:gravity="center"
+        android:background="@drawable/bg_dialog_game_quan"
+      />
+
+    <TextView
+        android:id="@+id/tv_dialog_game_prize_index"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="第1个柜子正在开门..."
+        android:textColor="#FFFFFF"
+        android:layout_centerInParent="true"
+        android:textStyle="bold"
+        android:textSize="90px"/>
+
+
+    <TextView
+        android:id="@+id/tv_dialog_game_prize_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_dialog_game_prize_index"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100px"
+        android:text=""
+        android:maxWidth="1200px"
+        android:lines="1"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:textSize="70px"/>
+
+    <ImageView
+        android:id="@+id/tv_dialog_game_prize_img"
+        android:layout_width="550px"
+        android:layout_height="550px"
+        android:layout_below="@+id/tv_dialog_game_prize_name"
+        android:layout_marginTop="50px"
+        android:padding="50px"
+        android:layout_centerHorizontal="true"
+        android:src="@color/white"
+        android:background="@drawable/bg_dialog_game_git"/>
+
+</com.zhy.autolayout.AutoRelativeLayout>
