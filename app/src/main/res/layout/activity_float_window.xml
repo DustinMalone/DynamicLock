@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.mylock.DynamicLock.FloatWindow.FloatWindowActivity">
+
+
+    <Button
+        android:id="@+id/showFloat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:text="打开辅助"/>
+
+    <!--<com.eftimoff.androipathview.PathView-->
+        <!--xmlns:pv="http://schemas.android.com/apk/res-auto"-->
+        <!--android:id="@+id/pathView"-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="200dp"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--pv:svg="@raw/cc"-->
+        <!--pv:pathWidth="5dp"/>-->
+
+
+    <com.opensource.svgaplayer.SVGAImageView
+        xmlns:svga="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/svga"
+        android:layout_height="500px"
+        android:layout_width="500px"
+        android:layout_centerInParent="true"
+        svga:source="posche.svga"
+        svga:autoPlay="true"
+        svga:loopCount="1"
+        android:background="#000" />
+
+
+
+</com.zhy.autolayout.AutoRelativeLayout>

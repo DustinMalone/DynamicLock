@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.mylock.DynamicLock.GalleryView.GalleryActivity">
+
+    <com.example.mylock.DynamicLock.GalleryView.GalleryRecyclerView
+        android:id="@+id/rv_info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+    </com.example.mylock.DynamicLock.GalleryView.GalleryRecyclerView>
+
+    <!--<com.example.mylock.DynamicLock.GalleryView.AnnularMenu-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:id="@+id/circleMenu"-->
+        <!--&gt;-->
+
+       <!--<ImageView-->
+           <!--android:layout_width="200px"-->
+           <!--android:layout_height="200px"-->
+           <!--android:src="@mipmap/ic_launcher"/>-->
+
+        <!--<ImageView-->
+            <!--android:layout_width="200px"-->
+            <!--android:layout_height="200px"-->
+            <!--android:src="@mipmap/ic_launcher"/>-->
+
+        <!--<ImageView-->
+            <!--android:layout_width="200px"-->
+            <!--android:layout_height="200px"-->
+            <!--android:src="@mipmap/ic_launcher"/>-->
+
+    <!--</com.example.mylock.DynamicLock.GalleryView.AnnularMenu>-->
+
+
+</com.zhy.autolayout.AutoRelativeLayout>

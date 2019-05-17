@@ -53,7 +53,7 @@ class GamePrizeDialog(private val mcontext: Context?) {
 
 
     fun setMessage(message: String): GamePrizeDialog {
-
+        tv_dialog_game_prize_index!!.text=message
         return this
     }
 
@@ -82,6 +82,16 @@ class GamePrizeDialog(private val mcontext: Context?) {
             dialog!!.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             dialog!!.show()
 
+            dialog_countDown=object :CountDownTimer(6000,1000){
+                override fun onFinish() {
+                    dismiss()
+                }
+
+                override fun onTick(millisUntilFinished: Long) {
+                }
+
+            }
+
 
         }
         return this
@@ -106,7 +116,7 @@ class GamePrizeDialog(private val mcontext: Context?) {
         return this
     }
 
-    //倒计时处理(有确定按钮)
+    //倒计时处理
     interface CountDownEvent {
         fun handCountDownEvent()
     }

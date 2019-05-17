@@ -5,7 +5,6 @@ import android.app.Application;
 import com.tencent.tinker.loader.app.ApplicationLike;
 import com.tinkerpatch.sdk.TinkerPatch;
 import com.tinkerpatch.sdk.loader.TinkerPatchApplicationLike;
-import com.zego.zegoliveroom.BuildConfig;
 import com.zego.zegoliveroom.ZegoLiveRoom;
 import com.zhy.autolayout.config.AutoLayoutConifg;
 
@@ -32,28 +31,28 @@ public class MyApplication extends Application{
         AutoLayoutConifg.getInstance().useDeviceSize();
 
         // 测试环境开关
-        ZegoLiveRoom.setTestEnv(true);
-
-        // 根据当前运行模式是否打开调试信息，仅供参考
-        ZegoLiveRoom.setVerbose(BuildConfig.DEBUG);
-
-        // 设置 UserID 和 UserName。userID 和 userName 来自于 App 自定义的账号系统
-        ZegoLiveRoom.setUser("0", "admin");
-
-        g_ZegoApi = new ZegoLiveRoom();
-        long appID = 1258711576;
-        byte[] signKey = {
-                (byte) 0x46, (byte) 0xb5,(byte)0x79,(byte)0x18, (byte) 0xc3, (byte) 0x89,
-                (byte) 0x77, (byte) 0xa7,(byte)0x0c, (byte) 0xf7,(byte)0x3c,
-                (byte) 0x8b, (byte) 0xac,
-                (byte) 0x58, (byte) 0xb7, (byte) 0xb0, (byte) 0xd2,
-                (byte)0x75, (byte) 0x97,(byte)0x7c, (byte) 0xf8,(byte)0x6c,
-                (byte)0x57,(byte)0x78, (byte) 0xd9,
-                (byte) 0x9a, (byte) 0x91,(byte)0x59,
-                (byte) 0xd9, (byte) 0x9a,(byte)0x6f, (byte) 0xf3
-        };
-        g_ZegoApi.setSDKContext(new ZegoSDKContext());
-        g_ZegoApi.initSDK(appID, signKey);
+//        ZegoLiveRoom.setTestEnv(true);
+//
+//        // 根据当前运行模式是否打开调试信息，仅供参考
+//        ZegoLiveRoom.setVerbose(BuildConfig.DEBUG);
+//
+//        // 设置 UserID 和 UserName。userID 和 userName 来自于 App 自定义的账号系统
+//        ZegoLiveRoom.setUser("0", "admin");
+//
+//        g_ZegoApi = new ZegoLiveRoom();
+//        long appID = 1258711576;
+//        byte[] signKey = {
+//                (byte) 0x46, (byte) 0xb5,(byte)0x79,(byte)0x18, (byte) 0xc3, (byte) 0x89,
+//                (byte) 0x77, (byte) 0xa7,(byte)0x0c, (byte) 0xf7,(byte)0x3c,
+//                (byte) 0x8b, (byte) 0xac,
+//                (byte) 0x58, (byte) 0xb7, (byte) 0xb0, (byte) 0xd2,
+//                (byte)0x75, (byte) 0x97,(byte)0x7c, (byte) 0xf8,(byte)0x6c,
+//                (byte)0x57,(byte)0x78, (byte) 0xd9,
+//                (byte) 0x9a, (byte) 0x91,(byte)0x59,
+//                (byte) 0xd9, (byte) 0x9a,(byte)0x6f, (byte) 0xf3
+//        };
+//        g_ZegoApi.setSDKContext(new ZegoSDKContext());
+//        g_ZegoApi.initSDK(appID, signKey);
 
         // 我们可以从这里获得Tinker加载过程的信息
         tinkerApplicationLike = TinkerPatchApplicationLike.getTinkerPatchApplicationLike();

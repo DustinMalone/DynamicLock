@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.TextView
 import com.example.mylock.DynamicLock.NumerDance.RiseNumberTextView
 import com.example.mylock.DynamicLock.Prize.GamePrizeAdapter
+import com.example.mylock.DynamicLock.Prize.GamePrizeDialog
 import com.example.mylock.DynamicLock.Prize.GridSpaceItemDecoration
 import com.example.mylock.DynamicLock.R
 import com.example.mylock.DynamicLock.base.BaseActivity
@@ -68,10 +69,18 @@ class NumDanceActivity : BaseActivity() {
                 }else{
                     rntv.start()
                     btn_start.text="停止"
-                    sel_handle.post(sel_Runnable)
+//                    sel_handle.post(sel_Runnable)
+                    cancelExit()
                 }
             }
         }
+    }
+
+    /**
+     * 拓展函数（切换按钮背景）
+     */
+    fun Button.loadUrl(url: Int) {
+        setBackgroundResource(url)
     }
 
     override fun init(savedInstanceState: Bundle?) {
@@ -88,6 +97,18 @@ class NumDanceActivity : BaseActivity() {
             btn_start.text="开始"
 //            game_prize_adapter!!.isShowSelect=false
 //            game_prize_adapter!!.notifyDataSetChanged()
+            var sel_pos=game_prize_adapter!!.getLastSelect()
+            var row=sel_pos/4+1//行数
+            var col=sel_pos%4+1//列数
+
+            GamePrizeDialog(this).create()
+                    .setMessage("第"+row+"行第"+col+"个柜子已开门...")
+                    .setHandEventAfterDismiss(object:GamePrizeDialog.HandEventAfterDismiss{
+                        override fun handEvent() {
+                            startExit(45000)
+                        }
+                    })
+                    .show()
         }
 //        rntv.setOnTimeTick {
 //           game_prize_adapter!!.apply {
@@ -103,6 +124,9 @@ class NumDanceActivity : BaseActivity() {
 //            }
 //
 //        }
+
+        //开启无操作定时关闭
+        startExit(45000)
     }
 
     override fun ObjectMessage(msg: Message?) {
@@ -127,5 +151,41 @@ class NumDanceActivity : BaseActivity() {
         sel_handle.postDelayed(sel_Runnable,20)
     }
 
+
+    private val exitGameRunable = Runnable {
+//        //清除会员登录信息
+//        SharePerferenceUtil.getInstance()
+//                .setValue(Constance.member_Info, "")
+//        //清除商城会员登录accessToken
+//        SharePerferenceUtil.getInstance()
+//                .setValue(Constance.user_accessToken, "")
+//        //清除商城会员登录shop_id
+//        SharePerferenceUtil.getInstance()
+//                .setValue(Constance.shop_id, "")
+
+
+        this@NumDanceActivity.finish()
+    }
+
+
+    private var isCancelExit = false
+    private fun cancelExit() {
+        isCancelExit = true
+        handler.removeCallbacks(exitGameRunable)
+    }
+
+    private fun startExit(time: Long) {
+        isCancelExit = false
+        handler.postDelayed(exitGameRunable, time)
+    }
+
+    override fun onUserInteraction() {
+        if (!isCancelExit) {
+            cancelExit()
+            startExit(45000)
+        }
+        super.onUserInteraction()
+
+    }
 
 }

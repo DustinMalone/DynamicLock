@@ -13,6 +13,6 @@ public class BootReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.e("BootReceiver","do....................");
-         context.startService(new Intent(context,LockService.class));//此Service可在首次启动Activity中启动
+//         context.startService(new Intent(context,LockService.class));//此Service可在首次启动Activity中启动
     }
 }

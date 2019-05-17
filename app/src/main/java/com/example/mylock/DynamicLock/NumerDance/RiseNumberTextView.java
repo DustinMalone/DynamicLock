@@ -11,7 +11,6 @@ import android.content.Context;
 import android.graphics.Typeface;
 import android.os.CountDownTimer;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.widget.TextView;
 
@@ -76,7 +75,7 @@ public class RiseNumberTextView extends AutoRelativeLayout implements RiseNumber
         rn_game_time_bg=(TextView) findViewById(R.id.rn_game_time_bg);
         // 准备字体
         Typeface typeface = Typeface.createFromAsset(context.getAssets(), "digital2" + File.separator
-                + "Digital2.ttf");
+                + "Digital3.ttf");
         // 设置字体
         rn_game_time.setTypeface(typeface);
         rn_game_time_bg.setTypeface(typeface);
@@ -221,6 +220,8 @@ public class RiseNumberTextView extends AutoRelativeLayout implements RiseNumber
             public void onAnimationEnd(Animator animation) {
                 mPlayingState = STOPPED;
                 lastIntValue="";
+                rn_game_time.setText(showIntText(new Random().nextInt(1100)));
+//                rn_game_time.setText(showIntText(Integer.parseInt(valueAnimatorInt.getAnimatedValue().toString())));
                 if (mEndListener != null){
                     mEndListener.onEndFinish();
                 }
@@ -228,14 +229,14 @@ public class RiseNumberTextView extends AutoRelativeLayout implements RiseNumber
 
             @Override
             public void onAnimationCancel(Animator animation) {
-                Log.e("wd",valueAnimatorInt.getAnimatedValue()+"");
-                if (timeTickListener!=null) {
-                    timeTickListener.TimeTick();
-                }
-                rn_game_time.setText(showIntText(Integer.parseInt(valueAnimatorInt.getAnimatedValue().toString())));
-                if (mEndListener != null){
-                    mEndListener.onEndFinish();
-                }
+//                Log.e("wd",valueAnimatorInt.getAnimatedValue()+"");
+//                if (timeTickListener!=null) {
+//                    timeTickListener.TimeTick();
+//                }
+//                rn_game_time.setText(showIntText(Integer.parseInt(valueAnimatorInt.getAnimatedValue().toString())));
+//                if (mEndListener != null){
+//                    mEndListener.onEndFinish();
+//                }
             }
 
             @Override
@@ -306,8 +307,8 @@ public class RiseNumberTextView extends AutoRelativeLayout implements RiseNumber
 //            if (timeTickListener!=null) {
 //                timeTickListener.TimeTick();
 //            }
-            rn_game_time.setText(showIntText(Integer.parseInt(curryValue)));
-
+//            rn_game_time.setText(showIntText(Integer.parseInt(curryValue)));
+            rn_game_time.setText(showIntText(new Random().nextInt(1100)));
         }
     };
 

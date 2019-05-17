@@ -12,7 +12,7 @@
         android:layout_centerVertical="true"
         android:textColor="#999999"
         android:text="88:88"
-        android:textSize="180px" />
+        android:textSize="160px" />
 
     <!--
     android:shadowColor 阴影颜色
@@ -27,6 +27,6 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:textColor="#FF2A2A"
-        android:textSize="180px" />
+        android:textSize="160px" />
 
 </com.zhy.autolayout.AutoRelativeLayout>

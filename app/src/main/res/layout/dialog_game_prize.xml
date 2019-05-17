@@ -22,7 +22,7 @@
         android:id="@+id/tv_dialog_game_prize_index"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="第1个柜子正在开门..."
+        android:text="第1行第1个柜子已开门..."
         android:textColor="#FFFFFF"
         android:layout_centerInParent="true"
         android:textStyle="bold"
@@ -51,7 +51,7 @@
         android:layout_marginTop="50px"
         android:padding="50px"
         android:layout_centerHorizontal="true"
-        android:src="@color/white"
+        android:src="@drawable/nd_prize"
         android:background="@drawable/bg_dialog_game_git"/>
 
 </com.zhy.autolayout.AutoRelativeLayout>
