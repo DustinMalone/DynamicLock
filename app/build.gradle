@@ -30,6 +30,7 @@ android {
     }
 
 
+    //keytool -v -list -keystore D:\android\androidspace\DynamicLock\app\lock.jks (查看签名详细命令)
     signingConfigs {
         debug {
             keyAlias "androiddebugkey"
